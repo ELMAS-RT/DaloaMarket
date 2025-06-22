@@ -110,11 +110,21 @@ export default {
       },
       spacing: {
         'safe-area-bottom': 'env(safe-area-inset-bottom)',
-        'safe-area-top': 'max(env(safe-area-inset-top), 44px)',
+        'safe-area-top': 'max(env(safe-area-inset-top), 0px)',
       },
       height: {
         'safe-area-bottom': 'env(safe-area-inset-bottom)',
-        'safe-area-top': 'max(env(safe-area-inset-top), 44px)',
+        'safe-area-top': 'max(env(safe-area-inset-top), 0px)',
+      },
+      minHeight: {
+        'touch': '48px',
+        'touch-sm': '44px',
+        'touch-lg': '52px',
+      },
+      minWidth: {
+        'touch': '48px',
+        'touch-sm': '44px',
+        'touch-lg': '52px',
       },
     },
   },
