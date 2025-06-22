@@ -6,6 +6,30 @@ import App from './App.tsx';
 import { SupabaseProvider } from './contexts/SupabaseContext.tsx';
 import './index.css';
 
+// Import Capacitor
+import { Capacitor } from '@capacitor/core';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { StatusBar, Style } from '@capacitor/status-bar';
+
+// Configuration native
+const initializeApp = async () => {
+  if (Capacitor.isNativePlatform()) {
+    try {
+      // Configuration de la barre de statut
+      await StatusBar.setStyle({ style: Style.Light });
+      await StatusBar.setBackgroundColor({ color: '#FF7F00' });
+      
+      // Masquer le splash screen après l'initialisation
+      await SplashScreen.hide();
+    } catch (error) {
+      console.error('Erreur lors de l\'initialisation native:', error);
+    }
+  }
+};
+
+// Initialiser l'app
+initializeApp();
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
